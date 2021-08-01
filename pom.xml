@@ -8,9 +8,80 @@
     <artifactId>Dmitrii_Pikhurov</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <testng.version>7.4.0</testng.version>
+        <assertj-core.version>3.20.2</assertj-core.version>
+        <maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version>
+        <maven-surefire-plugin.suiteXmlFile>${project.build.testOutputDirectory}/testng/calculator.homework1.addition.subtraction.xml
+        </maven-surefire-plugin.suiteXmlFile>
     </properties>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${maven-surefire-plugin.version}</version>
+                <configuration>
+                    <suiteXmlFiles>
+                        <suiteXmlFile>
+                            ${maven-surefire-plugin.suiteXmlFile}
+                        </suiteXmlFile>
+                    </suiteXmlFiles>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <profiles>
+        <profile>
+            <id>calculator-homework1-addition-subtraction-test</id>
+            <properties>
+                <maven-surefire-plugin.suiteXmlFile>${project.build.testOutputDirectory}/testng/calculator.homework1.addition.subtraction.xml
+                </maven-surefire-plugin.suiteXmlFile>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>calculator-homework1-multiply-division-test</id>
+            <properties>
+                <maven-surefire-plugin.suiteXmlFile>${project.build.testOutputDirectory}/testng/calculator.homework1.multiply.division.xml
+                </maven-surefire-plugin.suiteXmlFile>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>calculator-homework1-overall-test</id>
+            <properties>
+                <maven-surefire-plugin.suiteXmlFile>${project.build.testOutputDirectory}/testng/calculator.homework1.overall.xml
+                </maven-surefire-plugin.suiteXmlFile>
+            </properties>
+        </profile>
+
+    </profiles>
+
+    <dependencies>
+        <dependency>
+            <groupId>com</groupId>
+            <artifactId>calculator</artifactId>
+            <version>1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>${testng.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.assertj</groupId>
+            <artifactId>assertj-core</artifactId>
+            <version>${assertj-core.version}</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
 
 </project>
