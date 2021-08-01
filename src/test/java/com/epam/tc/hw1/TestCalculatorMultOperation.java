@@ -28,12 +28,12 @@ public class TestCalculatorMultOperation {
 
     @Test(dataProvider = "numbersToOperateLong")
     void multLongTest(long first, long second, long expectedResult) {
-        Assertions.assertThat(expectedResult).isEqualTo(calculator.mult(first, second));
+        Assertions.assertThat(calculator.mult(first, second)).isEqualTo(expectedResult);
     }
 
     @Test(dataProvider = "numbersToOperateDouble")
     void multDoubleTest(double first, double second, double expectedResult) {
-        Assertions.assertThat(expectedResult).isCloseTo(calculator.mult(first, second), Assertions.offset(precision));
+        Assertions.assertThat(calculator.mult(first, second)).isCloseTo(expectedResult, Assertions.offset(precision));
     }
 
 }

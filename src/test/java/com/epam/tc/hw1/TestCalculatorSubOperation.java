@@ -29,12 +29,12 @@ public class TestCalculatorSubOperation {
 
     @Test(dataProvider = "numbersToOperateLong")
     void subLongTest(long first, long second, long expectedResult) {
-        Assertions.assertThat(expectedResult).isEqualTo(calculator.sub(first, second));
+        Assertions.assertThat(calculator.sub(first, second)).isEqualTo(expectedResult);
     }
 
     @Test(dataProvider = "numbersToOperateDouble")
     void subDoubleTest(double first, double second, double expectedResult) {
-        Assertions.assertThat(expectedResult).isCloseTo(calculator.sub(first, second), Assertions.offset(precision));
+        Assertions.assertThat(calculator.sub(first, second)).isCloseTo(expectedResult, Assertions.offset(precision));
     }
 
 

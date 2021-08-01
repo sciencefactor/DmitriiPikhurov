@@ -25,7 +25,7 @@ public class TestCalculatorPowOperation {
 
     @Test(dataProvider = "numbersToOperateDouble")
     void powDoubleTest(double first, double second, double expectedResult) {
-        Assertions.assertThat(expectedResult).isCloseTo(calculator.pow(first, second), Assertions.offset(precision));
+        Assertions.assertThat(calculator.pow(first, second)).isCloseTo(expectedResult, Assertions.offset(precision));
     }
 
 

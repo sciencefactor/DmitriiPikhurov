@@ -29,12 +29,12 @@ public class TestCalculatorSumOperation {
 
     @Test(dataProvider = "numbersToOperateLong")
     void sumLongTest(long first, long second, long expectedResult) {
-        Assertions.assertThat(expectedResult).isEqualTo(calculator.sum(first, second));
+        Assertions.assertThat(calculator.sum(first, second)).isEqualTo(expectedResult);
     }
 
     @Test(dataProvider = "numbersToOperateDouble")
     void sumDoubleTest(double first, double second, double expectedResult) {
-        Assertions.assertThat(expectedResult).isCloseTo(calculator.sum(first, second), Assertions.offset(precision));
+        Assertions.assertThat(calculator.sum(first, second)).isCloseTo(expectedResult, Assertions.offset(precision));
     }
 
 

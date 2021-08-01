@@ -32,7 +32,7 @@ public class TestCalculatorDivOperation {
             Assertions.assertThatThrownBy(() -> calculator.div(first, second))
                     .isInstanceOf(NumberFormatException.class);
         } else {
-            Assertions.assertThat(expectedResult).isEqualTo(calculator.div(first, second));
+            Assertions.assertThat(calculator.div(first, second)).isEqualTo(expectedResult);
         }
 
     }
@@ -43,8 +43,8 @@ public class TestCalculatorDivOperation {
             Assertions.assertThatThrownBy(() -> calculator.div(first, second))
                     .isInstanceOf(NumberFormatException.class);
         } else {
-            Assertions.assertThat(expectedResult)
-                    .isCloseTo(calculator.div(first, second), Assertions.offset(precision));
+            Assertions.assertThat(calculator.div(first, second))
+                    .isCloseTo(expectedResult, Assertions.offset(precision));
         }
     }
 
