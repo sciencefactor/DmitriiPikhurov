@@ -70,6 +70,8 @@
             <groupId>com</groupId>
             <artifactId>calculator</artifactId>
             <version>${calculator.version}</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/src/test/resources/calculator-1.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>org.testng</groupId>
