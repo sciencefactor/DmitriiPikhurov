@@ -2,6 +2,9 @@ package com.epam.tc.hw2;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import java.time.Duration;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import org.assertj.core.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -11,11 +14,6 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.concurrent.TimeUnit;
 
 
 public class TestExercise2HomePage {
@@ -47,37 +45,37 @@ public class TestExercise2HomePage {
 
     @Test
     void checkExercise2Scenario() {
-        // Open test site by URL
+        // 1. Open test site by URL
         webDriver.navigate().to("https://jdi-testing.github.io/jdi-light/index.html");
-        //Assert Browser title
+        // 2. Assert Browser title
         Assertions.assertThat(webDriver.getTitle()).isEqualTo(expectedPageTitle);
-        // Perform login
+        // 3. Perform login
         webDriver.findElement(By.id("user-icon")).click();
         webDriver.findElement(By.id("name")).sendKeys("Roman");
         webDriver.findElement(By.id("password")).sendKeys("Jdi1234");
         webDriver.findElement(By.id("login-button")).click();
-        //Assert User name in the left-top side of screen that user is loggined
+        // 4. Assert User name in the left-top side of screen that user is loggined
         WebElement username = webDriver.findElement(By.id("user-name"));
         Assertions.assertThat(username.isDisplayed()).isTrue();
         Assertions.assertThat(username.getText()).isEqualTo(expectedUserName);
-        // Open through the header menu Service -> Different Elements Page
+        // 5. Open through the header menu Service -> Different Elements Page
         webDriver.findElement(
             By.cssSelector("ul[class=\"uui-navigation nav navbar-nav m-l8\"]>li>a[class=\"dropdown-toggle\"]")).click();
         webDriver.findElement(By.cssSelector("ul[role=\"menu\"]>li>a[href=\"different-elements.html\"]")).click();
-        // Select checkboxes
+        // 6. Select checkboxes
         WebElement waterCheckBox = webDriver.findElement(By.xpath("//label[contains(string(), 'Water')]"));
         WebElement windCheckBox = webDriver.findElement(By.xpath("//label[contains(string(), 'Wind')]"));
         waterCheckBox.click();
         windCheckBox.click();
-        // Select radio
+        // 7. Select radio
         WebElement selenCheckBox = webDriver.findElement(By.xpath("//label[contains(string(), 'Selen')]"));
         selenCheckBox.click();
         Assertions.assertThat(selenCheckBox.findElement(By.tagName("input")).isSelected()).isTrue();
-        // Select in dropdown
+        // 8. Select in dropdown
         WebElement selectColor = webDriver.findElement(By.cssSelector("select[class=\"uui-form-element\"]"));
         Select selectColorDropdown = new Select(selectColor);
         selectColorDropdown.selectByVisibleText(expectedSelectColor);
-        // Assert Log rows are correct
+        // 9. Assert Log rows are correct
         List<WebElement> panelListLogs =
             webDriver.findElements(By.cssSelector("ul[class=\"panel-body-list logs\"]>li"));
         Map<String, String> logNameStatus = new HashMap<>();
@@ -87,7 +85,7 @@ public class TestExercise2HomePage {
             logNameStatus.put(itemName, itemStatus);
         }
         Assertions.assertThat(logNameStatus).isEqualTo(expectedLogNameStatus);
-        // Close Browser
+        // 10. Close Browser
         webDriver.quit();
     }
 
