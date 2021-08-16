@@ -15,7 +15,7 @@ import org.testng.annotations.Test;
 public class TestControlElementsOfElementsPage extends AbstractTestPage {
 
 
-    private static final  String EXPECTED_PAGE_TITLE = "Home Page";
+    private static final String EXPECTED_PAGE_TITLE = "Home Page";
     private static final String EXPECTED_USER_NAME = "ROMAN IOVLEV";
     private static final Map<String, String> EXPECTED_LOG_NAME_STATUS = Map.of(
         "Water", "true",
@@ -25,12 +25,6 @@ public class TestControlElementsOfElementsPage extends AbstractTestPage {
     private static final String EXPECTED_SELECT_COLOR = "Yellow";
     private static final int ORDER_OF_NAME_WORD_IN_LOG = 1;
     private static final int ORDER_OF_STATUS_WORD_IN_LOG = 5;
-
-
-    @BeforeClass
-    void setupWebDriver() {
-        WebDriverManager.chromedriver().setup();
-    }
 
 
     @Test
