@@ -72,9 +72,16 @@
             </properties>
         </profile>
         <profile>
-            <id>selenium-homework3-overall-test</id>
+            <id>selenium-homework3-overall-void-pages-test</id>
             <properties>
-                <maven-surefire-plugin.suiteXmlFile>${project.build.testOutputDirectory}/testng/selenium.homework3.overall.xml
+                <maven-surefire-plugin.suiteXmlFile>${project.build.testOutputDirectory}/testng/selenium.homework3.overall.void.page.object.xml
+                </maven-surefire-plugin.suiteXmlFile>
+            </properties>
+        </profile>
+        <profile>
+            <id>selenium-homework3-overall-fluent-pages-test</id>
+            <properties>
+                <maven-surefire-plugin.suiteXmlFile>${project.build.testOutputDirectory}/testng/selenium.homework3.overall.fluent.page.object.xml
                 </maven-surefire-plugin.suiteXmlFile>
             </properties>
         </profile>

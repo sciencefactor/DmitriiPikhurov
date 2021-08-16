@@ -11,18 +11,18 @@ import org.testng.annotations.BeforeClass;
 
 public class PagesUITest {
 
-    protected WebDriver webDriver;
-    protected Properties properties;
+    public WebDriver webDriver;
+    public Properties properties;
 
 
     @BeforeClass
-    void setUp() {
+    public void setUp() {
         webDriver = WebDriverProvider.getChromeDriver();
         webDriver.manage().window().maximize();
     }
 
     @BeforeClass
-    void loadProperties() {
+    public void loadProperties() {
         try (InputStream inputStream = new FileInputStream("src/test/resources/textdata/userdata.properties")) {
             Properties userProperties = new Properties();
             userProperties.load(inputStream);
@@ -33,7 +33,7 @@ public class PagesUITest {
     }
 
     @AfterClass
-    void closeBrowser() {
+    public void closeBrowser() {
         webDriver.quit();
     }
 }
