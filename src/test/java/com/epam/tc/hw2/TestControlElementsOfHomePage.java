@@ -1,22 +1,19 @@
 package com.epam.tc.hw2;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
-import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 import org.assertj.core.api.SoftAssertions;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 
-public class TestExercise1HomePage {
+public class TestControlElementsOfHomePage extends AbstractTestPage {
 
-    private WebDriver webDriver;
+
     private SoftAssertions softAssertions;
     private final List<String> expectedNavigatorBarItems = new ArrayList<>(
         List.of("HOME", "CONTACT FORM", "SERVICE", "METALS & COLORS"));
@@ -33,16 +30,8 @@ public class TestExercise1HomePage {
     private final String expectedUserName = "ROMAN IOVLEV";
     private final String expectedPageTitle = "Home Page";
 
-    @BeforeClass
-    void setupWebDriver() {
-        WebDriverManager.chromedriver().setup();
-    }
-
     @BeforeMethod
-    void createNewDriver() {
-        webDriver = new ChromeDriver();
-        webDriver.manage().window().maximize();
-        webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+    void createSoftAssertion() {
         softAssertions = new SoftAssertions();
     }
 
@@ -85,15 +74,15 @@ public class TestExercise1HomePage {
         List<WebElement> sidebarElements = webDriver.findElements(By.cssSelector("ul[class=\"sidebar-menu left\"]>li"));
         softAssertions.assertThat(sidebarElements.size()).isEqualTo(expectedSidebarElements.size());
         assertThatAllElementsExpectedlyDisplayed(sidebarElements, expectedSidebarElements);
+        softAssertions.assertAll();
         // 12. Close Browser
         webDriver.quit();
     }
 
     private void assertThatAllElementsExpectedlyDisplayed(List<WebElement> actualElements,
                                                           List<String> expectedElements) {
-        for (int i = 0; i < actualElements.size(); i++) {
-            softAssertions.assertThat(actualElements.get(i).isDisplayed()).isTrue();
-            softAssertions.assertThat(actualElements.get(i).getText()).isEqualTo(expectedElements.get(i));
-        }
+        actualElements.forEach(element -> softAssertions.assertThat(element.isDisplayed()).isTrue());
+        List<String> actualTexts = actualElements.stream().map(WebElement::getText).collect(Collectors.toList());
+        softAssertions.assertThat(actualTexts).isEqualTo(expectedElements);
     }
 }

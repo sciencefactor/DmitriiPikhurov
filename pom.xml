@@ -19,6 +19,8 @@
         <maven-surefire-plugin.suiteXmlFile>${project.build.testOutputDirectory}/testng/calculator.homework1.addition.subtraction.xml
         </maven-surefire-plugin.suiteXmlFile>
         <calculator.version>1</calculator.version>
+        <webdrivermanager.version>4.4.3</webdrivermanager.version>
+        <selenium-java.version>4.0.0-beta-4</selenium-java.version>
     </properties>
 
     <build>
@@ -94,12 +96,12 @@
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
-            <version>4.0.0-beta-4</version>
+            <version>${selenium-java.version}</version>
         </dependency>
         <dependency>
             <groupId>io.github.bonigarcia</groupId>
             <artifactId>webdrivermanager</artifactId>
-            <version>4.4.3</version>
+            <version>${webdrivermanager.version}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>

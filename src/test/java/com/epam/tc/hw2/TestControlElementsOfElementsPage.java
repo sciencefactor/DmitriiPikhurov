@@ -1,24 +1,20 @@
 package com.epam.tc.hw2;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import java.time.Duration;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import org.assertj.core.api.Assertions;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 
-public class TestExercise2HomePage {
+public class TestControlElementsOfElementsPage extends AbstractTestPage{
 
-    private WebDriver webDriver;
+
     private final String expectedPageTitle = "Home Page";
     private final String expectedUserName = "ROMAN IOVLEV";
     private final Map<String, String> expectedLogNameStatus = Map.of(
@@ -36,12 +32,6 @@ public class TestExercise2HomePage {
         WebDriverManager.chromedriver().setup();
     }
 
-    @BeforeMethod
-    void createNewDriver() {
-        webDriver = new ChromeDriver();
-        webDriver.manage().window().maximize();
-        webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-    }
 
     @Test
     void checkExercise2Scenario() {
