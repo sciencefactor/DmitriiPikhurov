@@ -1,20 +1,21 @@
-package com.epam.tc.hw3.tests;
+package com.epam.tc.hw3.bonus.fluent.tests;
 
 
-import com.epam.tc.hw3.pages.HomePageObject;
+import com.epam.tc.hw3.bonus.fluent.pages.FluentHomePageObject;
+import com.epam.tc.hw3.tests.AbstractPagesUITest;
 import com.epam.tc.hw3.utils.PagesDataProviders;
 import java.util.List;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-public class TestHomePageControlElements extends AbstractPagesUITest {
+public class FluentTestHomePageControlElementsAbstract extends AbstractPagesUITest {
 
-    private HomePageObject homePage;
+    private FluentHomePageObject homePage;
 
 
     @BeforeClass
     void navigateToHomePage() {
-        homePage = new HomePageObject(webDriver);
+        homePage = new FluentHomePageObject(webDriver);
     }
 
 
@@ -26,8 +27,7 @@ public class TestHomePageControlElements extends AbstractPagesUITest {
 
     @Test(dataProvider = "loginData", dataProviderClass = PagesDataProviders.class)
     void login(String login, String password, String expectedUserName) {
-        homePage.signIn(login, password);
-        homePage.checkSignIn(expectedUserName);
+        homePage.signIn(login, password).checkSignIn(expectedUserName);
     }
 
 
@@ -61,15 +61,12 @@ public class TestHomePageControlElements extends AbstractPagesUITest {
 
     @Test(dependsOnMethods = {"login"})
     void checkIfIFrameContainsButton() {
-        homePage.switchToButtonFrame();
-        homePage.checkIfButtonDisplayed();
-        homePage.switchToParentFrame();
+        homePage.switchToButtonFrame().checkIfButtonDisplayed().switchToParentFrame();
     }
 
 
-    @Test(dependsOnMethods = {"login"},
-        dataProvider = "homePageExpectedSideBarElements",
-        dataProviderClass = PagesDataProviders.class)
+    @Test(dependsOnMethods = {
+        "login"}, dataProvider = "homePageExpectedSideBarElements", dataProviderClass = PagesDataProviders.class)
     void checkSideBarMenu(List<String> expectedSideBarElements) {
         homePage.checkSidebarElements(expectedSideBarElements);
     }

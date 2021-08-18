@@ -1,37 +1,34 @@
-package com.epam.tc.hw3.tests;
+package com.epam.tc.hw3.bonus.fluent.tests;
 
-import com.epam.tc.hw3.pages.DifferentElementsPageObject;
-import com.epam.tc.hw3.pages.HomePageObject;
+import com.epam.tc.hw3.bonus.fluent.pages.FluentDifferentElementsPageObject;
+import com.epam.tc.hw3.bonus.fluent.pages.FluentHomePageObject;
+import com.epam.tc.hw3.tests.AbstractPagesUITest;
 import com.epam.tc.hw3.utils.PagesDataProviders;
 import java.util.Map;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-public class TestElementsPage extends AbstractPagesUITest {
+public class FluentTestElementsPageAbstract extends AbstractPagesUITest {
 
-
-    private HomePageObject homePage;
-    private DifferentElementsPageObject elementsPage;
-
+    private FluentHomePageObject homePage;
+    private FluentDifferentElementsPageObject elementsPage;
 
     @BeforeClass
     void navigateToHomePage() {
-        homePage = new HomePageObject(webDriver);
+        homePage = new FluentHomePageObject(webDriver);
     }
+
 
     @Test(dataProvider = "loginData", dataProviderClass = PagesDataProviders.class)
     void login(String login, String password, String expectedUserName) {
-        homePage.signIn(login, password);
-        homePage.checkSignIn(expectedUserName);
+        homePage.signIn(login, password).checkSignIn(expectedUserName);
     }
 
 
     @Test(dependsOnMethods = {
         "login"}, dataProvider = "homePageIndexOfDropdown", dataProviderClass = PagesDataProviders.class)
     void switchToElementsPage(int indexOfReference) {
-        homePage.clickNavigationItemWithIndex(indexOfReference);
-        homePage.clickRefDifferentElements();
-        elementsPage = new DifferentElementsPageObject(webDriver);
+        elementsPage = homePage.clickNavigationItemWithIndex(indexOfReference).clickRefDifferentElements();
     }
 
 
@@ -43,11 +40,11 @@ public class TestElementsPage extends AbstractPagesUITest {
                            int indexRadio,
                            String color,
                            Map<String, String> expectedLogs) {
-        elementsPage.clickElementCheckBoxWithIndex(indexBoxFirst);
-        elementsPage.clickElementCheckBoxWithIndex(indexBoxSecond);
-        elementsPage.clickElementsRadioWithIndex(indexRadio);
-        elementsPage.chooseColorDropdownMenu(color);
-        elementsPage.checkIfLogsListPanelCorrect(expectedLogs);
+        elementsPage.clickElementCheckBoxWithIndex(indexBoxFirst)
+            .clickElementCheckBoxWithIndex(indexBoxSecond)
+            .clickElementsRadioWithIndex(indexRadio)
+            .chooseColorDropdownMenu(color)
+            .checkIfLogsListPanelCorrect(expectedLogs);
     }
 
 
