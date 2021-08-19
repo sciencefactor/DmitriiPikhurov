@@ -22,6 +22,7 @@ public class HomePageLoginMenu extends AbstractComponent {
 
     @FindBy(id = "user-name")
     private WebElement userNameText;
+    private static final String LOGOUT_CLASS = "hidden";
 
     public HomePageLoginMenu(WebDriver driver) {
         super(driver);
@@ -36,6 +37,14 @@ public class HomePageLoginMenu extends AbstractComponent {
 
     public WebElement getUserNameText() {
         return userNameText;
+    }
+
+    public boolean isSignedIn() {
+        return userNameText.isDisplayed();
+    }
+
+    public boolean isNotSignedIn() {
+        return !isSignedIn();
     }
 
 

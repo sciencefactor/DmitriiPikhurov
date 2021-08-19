@@ -34,7 +34,9 @@ public class HomePageObject extends AbstractPageObject {
 
 
     public void signIn(String login, String password) {
-        loginMenu.signIn(login, password);
+        if (loginMenu.isNotSignedIn()) {
+            loginMenu.signIn(login, password);
+        }
     }
 
     public void checkSignIn(String expectedUserName) {

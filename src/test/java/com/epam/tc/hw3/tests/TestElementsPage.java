@@ -9,11 +9,24 @@ import org.testng.annotations.Test;
 
 public class TestElementsPage extends AbstractPagesUITest {
 
+
+    private HomePageObject homePage;
     private DifferentElementsPageObject elementsPage;
 
 
-    @Test(dependsOnMethods = {
-        "login"}, dataProvider = "homePageIndexOfDropdown", dataProviderClass = PagesDataProviders.class)
+    @BeforeClass
+    void navigateToHomePage() {
+        homePage = new HomePageObject(webDriver);
+    }
+
+    @Test(dataProvider = "loginData", dataProviderClass = PagesDataProviders.class)
+    void login(String login, String password, String expectedUserName) {
+        homePage.signIn(login, password);
+        homePage.checkSignIn(expectedUserName);
+    }
+
+
+    @Test(dataProvider = "homePageIndexOfDropdown", dataProviderClass = PagesDataProviders.class)
     void switchToElementsPage(int indexOfReference) {
         homePage.clickNavigationItemWithIndex(indexOfReference);
         homePage.clickRefDifferentElements();
@@ -21,8 +34,7 @@ public class TestElementsPage extends AbstractPagesUITest {
     }
 
 
-    @Test(dependsOnMethods = {"switchToElementsPage"},
-        dataProvider = "elementsPageExpectedLogs",
+    @Test(dataProvider = "elementsPageExpectedLogs",
         dataProviderClass = PagesDataProviders.class)
     void checkLogPanelList(int indexBoxFirst,
                            int indexBoxSecond,
