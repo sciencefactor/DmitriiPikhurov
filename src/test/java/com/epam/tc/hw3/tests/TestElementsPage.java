@@ -9,21 +9,7 @@ import org.testng.annotations.Test;
 
 public class TestElementsPage extends AbstractPagesUITest {
 
-
-    private HomePageObject homePage;
     private DifferentElementsPageObject elementsPage;
-
-
-    @BeforeClass
-    void navigateToHomePage() {
-        homePage = new HomePageObject(webDriver);
-    }
-
-    @Test(dataProvider = "loginData", dataProviderClass = PagesDataProviders.class)
-    void login(String login, String password, String expectedUserName) {
-        homePage.signIn(login, password);
-        homePage.checkSignIn(expectedUserName);
-    }
 
 
     @Test(dependsOnMethods = {

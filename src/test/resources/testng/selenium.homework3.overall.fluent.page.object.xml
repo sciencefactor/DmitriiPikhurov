@@ -3,8 +3,8 @@
 <suite name="overallCalculatorTests">
     <test name="overallOperationsTests">
         <classes>
-            <class name="com.epam.tc.hw3.bonus.fluent.tests.FluentTestHomePageControlElementsAbstract"/>
-            <class name="com.epam.tc.hw3.bonus.fluent.tests.FluentTestElementsPageAbstract"/>
+            <class name="com.epam.tc.hw3.bonus.fluent.tests.FluentTestHomePageControlElements"/>
+            <class name="com.epam.tc.hw3.bonus.fluent.tests.FluentTestElementsPage"/>
         </classes>
     </test>
 </suite>

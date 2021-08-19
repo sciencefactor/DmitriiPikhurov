@@ -8,7 +8,7 @@ import java.util.Map;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-public class FluentTestElementsPageAbstract extends AbstractPagesUITest {
+public class FluentTestElementsPage extends AbstractPagesUITest {
 
     private FluentHomePageObject homePage;
     private FluentDifferentElementsPageObject elementsPage;
@@ -19,14 +19,7 @@ public class FluentTestElementsPageAbstract extends AbstractPagesUITest {
     }
 
 
-    @Test(dataProvider = "loginData", dataProviderClass = PagesDataProviders.class)
-    void login(String login, String password, String expectedUserName) {
-        homePage.signIn(login, password).checkSignIn(expectedUserName);
-    }
-
-
-    @Test(dependsOnMethods = {
-        "login"}, dataProvider = "homePageIndexOfDropdown", dataProviderClass = PagesDataProviders.class)
+    @Test(dataProvider = "homePageIndexOfDropdown", dataProviderClass = PagesDataProviders.class)
     void switchToElementsPage(int indexOfReference) {
         elementsPage = homePage.clickNavigationItemWithIndex(indexOfReference).clickRefDifferentElements();
     }
