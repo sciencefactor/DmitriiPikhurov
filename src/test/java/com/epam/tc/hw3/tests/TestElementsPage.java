@@ -9,26 +9,34 @@ import org.testng.annotations.Test;
 
 public class TestElementsPage extends AbstractPagesUITest {
 
+
+    private HomePageObject homePage;
     private DifferentElementsPageObject elementsPage;
 
 
-    @Test(dependsOnMethods = {
-        "login"}, dataProvider = "homePageIndexOfDropdown", dataProviderClass = PagesDataProviders.class)
-    void switchToElementsPage(int indexOfReference) {
-        homePage.clickNavigationItemWithIndex(indexOfReference);
-        homePage.clickRefDifferentElements();
-        elementsPage = new DifferentElementsPageObject(webDriver);
+    @BeforeClass
+    void navigateToHomePage() {
+        homePage = new HomePageObject(webDriver);
+        loginPrecondition(homePage);
     }
 
 
-    @Test(dependsOnMethods = {"switchToElementsPage"},
-        dataProvider = "elementsPageExpectedLogs",
-        dataProviderClass = PagesDataProviders.class)
-    void checkLogPanelList(int indexBoxFirst,
-                           int indexBoxSecond,
-                           int indexRadio,
-                           String color,
-                           Map<String, String> expectedLogs) {
+    @Test(dataProvider = "userName", dataProviderClass = PagesDataProviders.class)
+    void checkLogin(String expectedUserName) {
+        homePage.checkLogIn(expectedUserName);
+    }
+
+
+    @Test(dataProvider = "elementsPageExpectedLogs", dataProviderClass = PagesDataProviders.class)
+    void checkElementsPageLogMenu(int indexOfReference,
+                              int indexBoxFirst,
+                              int indexBoxSecond,
+                              int indexRadio,
+                              String color,
+                              Map<String, String> expectedLogs) {
+        homePage.clickNavigationItemWithIndex(indexOfReference);
+        homePage.clickRefDifferentElements();
+        elementsPage = new DifferentElementsPageObject(webDriver);
         elementsPage.clickElementCheckBoxWithIndex(indexBoxFirst);
         elementsPage.clickElementCheckBoxWithIndex(indexBoxSecond);
         elementsPage.clickElementsRadioWithIndex(indexRadio);

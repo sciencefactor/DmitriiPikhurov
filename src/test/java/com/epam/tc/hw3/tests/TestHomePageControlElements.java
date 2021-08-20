@@ -1,11 +1,22 @@
 package com.epam.tc.hw3.tests;
 
 
+import com.epam.tc.hw3.pages.HomePageObject;
 import com.epam.tc.hw3.utils.PagesDataProviders;
 import java.util.List;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 public class TestHomePageControlElements extends AbstractPagesUITest {
+
+    private HomePageObject homePage;
+
+
+    @BeforeClass
+    void navigateToHomePage() {
+        homePage = new HomePageObject(webDriver);
+        loginPrecondition(homePage);
+    }
 
 
     @Test(dataProvider = "homePageExpectedPageTitle", dataProviderClass = PagesDataProviders.class)
@@ -13,9 +24,10 @@ public class TestHomePageControlElements extends AbstractPagesUITest {
         homePage.checkTitle(expectedPageTitle);
     }
 
+
     @Test(dataProvider = "userName", dataProviderClass = PagesDataProviders.class)
-    void checkSignIn(String expectedUserName){
-        homePage.checkSignIn(expectedUserName);
+    void checkLogin(String expectedUserName) {
+        homePage.checkLogIn(expectedUserName);
     }
 
 

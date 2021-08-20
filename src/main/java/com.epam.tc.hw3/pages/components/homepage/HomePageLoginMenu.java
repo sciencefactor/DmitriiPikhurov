@@ -27,7 +27,7 @@ public class HomePageLoginMenu extends AbstractComponent {
         super(driver);
     }
 
-    public void signIn(String login, String password) {
+    public void logIn(String login, String password) {
         userIcon.click();
         nameField.sendKeys(login);
         passwordField.sendKeys(password);

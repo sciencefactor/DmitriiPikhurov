@@ -32,12 +32,12 @@ public class HomePageObject extends AbstractPageObject {
         Assertions.assertThat(webDriver.getTitle()).isEqualTo(title);
     }
 
-
-    public void signIn(String login, String password) {
-        loginMenu.signIn(login, password);
+    @Override
+    public void logIn(String loginData, String passwordData) {
+        loginMenu.logIn(loginData, passwordData);
     }
 
-    public void checkSignIn(String expectedUserName) {
+    public void checkLogIn(String expectedUserName) {
         Assertions.assertThat(loginMenu.getUserNameText().isDisplayed()).isTrue();
         Assertions.assertThat(loginMenu.getUserNameText().getText()).isEqualTo(expectedUserName);
     }
