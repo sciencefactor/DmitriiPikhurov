@@ -8,7 +8,7 @@ import java.util.Map;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-public class FluentTestElementsPageAbstract extends AbstractPagesUITest {
+public class FluentTestElementsPage extends AbstractPagesUITest {
 
     private FluentHomePageObject homePage;
     private FluentDifferentElementsPageObject elementsPage;

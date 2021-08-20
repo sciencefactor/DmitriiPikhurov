@@ -8,7 +8,7 @@ import java.util.List;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-public class FluentTestHomePageControlElementsAbstract extends AbstractPagesUITest {
+public class FluentTestHomePageControlElements extends AbstractPagesUITest {
 
     private FluentHomePageObject homePage;
 
