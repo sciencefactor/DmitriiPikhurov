@@ -11,4 +11,6 @@ public abstract class AbstractPageObject {
         webDriver = driver;
         PageFactory.initElements(driver, this);
     }
+
+    public abstract void logIn(String loginData, String passwordData);
 }

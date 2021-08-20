@@ -17,30 +17,26 @@ public class TestElementsPage extends AbstractPagesUITest {
     @BeforeClass
     void navigateToHomePage() {
         homePage = new HomePageObject(webDriver);
-    }
-
-    @Test(dataProvider = "loginData", dataProviderClass = PagesDataProviders.class)
-    void login(String login, String password, String expectedUserName) {
-        homePage.signIn(login, password);
-        homePage.checkSignIn(expectedUserName);
+        loginPrecondition(homePage);
     }
 
 
-    @Test(dataProvider = "homePageIndexOfDropdown", dataProviderClass = PagesDataProviders.class)
-    void switchToElementsPage(int indexOfReference) {
+    @Test(dataProvider = "userName", dataProviderClass = PagesDataProviders.class)
+    void checkLogin(String expectedUserName) {
+        homePage.checkLogIn(expectedUserName);
+    }
+
+
+    @Test(dataProvider = "elementsPageExpectedLogs", dataProviderClass = PagesDataProviders.class)
+    void checkElementsPageLogMenu(int indexOfReference,
+                              int indexBoxFirst,
+                              int indexBoxSecond,
+                              int indexRadio,
+                              String color,
+                              Map<String, String> expectedLogs) {
         homePage.clickNavigationItemWithIndex(indexOfReference);
         homePage.clickRefDifferentElements();
         elementsPage = new DifferentElementsPageObject(webDriver);
-    }
-
-
-    @Test(dataProvider = "elementsPageExpectedLogs",
-        dataProviderClass = PagesDataProviders.class)
-    void checkLogPanelList(int indexBoxFirst,
-                           int indexBoxSecond,
-                           int indexRadio,
-                           String color,
-                           Map<String, String> expectedLogs) {
         elementsPage.clickElementCheckBoxWithIndex(indexBoxFirst);
         elementsPage.clickElementCheckBoxWithIndex(indexBoxSecond);
         elementsPage.clickElementsRadioWithIndex(indexRadio);

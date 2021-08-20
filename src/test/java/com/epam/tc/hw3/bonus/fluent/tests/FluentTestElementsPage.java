@@ -8,7 +8,7 @@ import java.util.Map;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-public class FluentTestElementsPage extends AbstractPagesUITest {
+public class FluentTestElementsPageAbstract extends AbstractPagesUITest {
 
     private FluentHomePageObject homePage;
     private FluentDifferentElementsPageObject elementsPage;
@@ -16,23 +16,24 @@ public class FluentTestElementsPage extends AbstractPagesUITest {
     @BeforeClass
     void navigateToHomePage() {
         homePage = new FluentHomePageObject(webDriver);
+        loginPrecondition(homePage);
     }
 
 
-    @Test(dataProvider = "homePageIndexOfDropdown", dataProviderClass = PagesDataProviders.class)
-    void switchToElementsPage(int indexOfReference) {
+    @Test(dataProvider = "userName", dataProviderClass = PagesDataProviders.class)
+    void checkLogin(String expectedUserName) {
+        homePage.checkLogIn(expectedUserName);
+    }
+
+
+    @Test(dataProvider = "elementsPageExpectedLogs", dataProviderClass = PagesDataProviders.class)
+    void switchToElementsPage(int indexOfReference,
+                              int indexBoxFirst,
+                              int indexBoxSecond,
+                              int indexRadio,
+                              String color,
+                              Map<String, String> expectedLogs) {
         elementsPage = homePage.clickNavigationItemWithIndex(indexOfReference).clickRefDifferentElements();
-    }
-
-
-    @Test(dependsOnMethods = {"switchToElementsPage"},
-        dataProvider = "elementsPageExpectedLogs",
-        dataProviderClass = PagesDataProviders.class)
-    void checkLogPanelList(int indexBoxFirst,
-                           int indexBoxSecond,
-                           int indexRadio,
-                           String color,
-                           Map<String, String> expectedLogs) {
         elementsPage.clickElementCheckBoxWithIndex(indexBoxFirst)
             .clickElementCheckBoxWithIndex(indexBoxSecond)
             .clickElementsRadioWithIndex(indexRadio)

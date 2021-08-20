@@ -29,18 +29,23 @@ public class FluentHomePageObject extends AbstractPageObject {
         sidebar = new HomePageSidebar(driver);
     }
 
+    @Override
+    public void logIn(String loginData, String passwordData) {
+        loginMenu.logIn(loginData, passwordData);
+    }
+
     public FluentHomePageObject checkTitle(String title) {
         Assertions.assertThat(webDriver.getTitle()).isEqualTo(title);
         return this;
     }
 
 
-    public FluentHomePageObject signIn(String login, String password) {
-        loginMenu.signIn(login, password);
+    public FluentHomePageObject fluentLogIn(String login, String password) {
+        loginMenu.logIn(login, password);
         return this;
     }
 
-    public FluentHomePageObject checkSignIn(String expectedUserName) {
+    public FluentHomePageObject checkLogIn(String expectedUserName) {
         Assertions.assertThat(loginMenu.getUserNameText().isDisplayed()).isTrue();
         Assertions.assertThat(loginMenu.getUserNameText().getText()).isEqualTo(expectedUserName);
         return this;

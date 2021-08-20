@@ -15,11 +15,7 @@ public class TestHomePageControlElements extends AbstractPagesUITest {
     @BeforeClass
     void navigateToHomePage() {
         homePage = new HomePageObject(webDriver);
-    }
-
-    
-    void login(String login, String password) {
-        homePage.signIn(login, password);
+        loginPrecondition(homePage);
     }
 
 
@@ -30,9 +26,10 @@ public class TestHomePageControlElements extends AbstractPagesUITest {
 
 
     @Test(dataProvider = "userName", dataProviderClass = PagesDataProviders.class)
-    void checkSignIn(String expectedUserName) {
-        homePage.checkSignIn(expectedUserName);
+    void checkLogin(String expectedUserName) {
+        homePage.checkLogIn(expectedUserName);
     }
+
 
     @Test(dataProvider = "homePageExpectedNavigationItemsQuantity",
         dataProviderClass = PagesDataProviders.class)

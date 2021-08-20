@@ -8,7 +8,7 @@ import java.util.List;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-public class FluentTestHomePageControlElements extends AbstractPagesUITest {
+public class FluentTestHomePageControlElementsAbstract extends AbstractPagesUITest {
 
     private FluentHomePageObject homePage;
 
@@ -16,6 +16,7 @@ public class FluentTestHomePageControlElements extends AbstractPagesUITest {
     @BeforeClass
     void navigateToHomePage() {
         homePage = new FluentHomePageObject(webDriver);
+        loginPrecondition(homePage);
     }
 
 
@@ -24,9 +25,10 @@ public class FluentTestHomePageControlElements extends AbstractPagesUITest {
         homePage.checkTitle(expectedPageTitle);
     }
 
+
     @Test(dataProvider = "userName", dataProviderClass = PagesDataProviders.class)
-    void checkSignIn(String expectedUserName){
-        homePage.checkSignIn(expectedUserName);
+    void checkLogin(String expectedUserName) {
+        homePage.checkLogIn(expectedUserName);
     }
 
 

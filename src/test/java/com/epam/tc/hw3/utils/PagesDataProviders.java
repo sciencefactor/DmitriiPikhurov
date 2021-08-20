@@ -6,14 +6,10 @@ import java.io.InputStream;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
+
 import org.testng.annotations.DataProvider;
 
 public class PagesDataProviders {
-
-    @DataProvider(name = "userName")
-    static Object[][] userName() {
-        return new Object[][] {{"ROMAN IOVLEV"}};
-    }
 
     @DataProvider(name = "loginData")
     static Object[][] loginData() {
@@ -33,6 +29,11 @@ public class PagesDataProviders {
         return userProperties;
     }
 
+    @DataProvider(name = "userName")
+    static Object[][] userName() {
+        return new Object[][] {{"ROMAN IOVLEV"}};
+    }
+
 
     @DataProvider(name = "homePageIndexOfDropdown")
     static Object[][] homePageIndexOfDropdown() {
@@ -41,7 +42,7 @@ public class PagesDataProviders {
 
     @DataProvider(name = "elementsPageExpectedLogs")
     static Object[][] elementsPageExpectedLogs() {
-        return new Object[][] {{0, 2, 3, "Yellow", Map.of(
+        return new Object[][] {{2, 0, 2, 3, "Yellow", Map.of(
             "Water", "true",
             "Wind", "true",
             "metal", "Selen",

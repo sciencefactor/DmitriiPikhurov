@@ -4,6 +4,7 @@ import com.epam.tc.hw3.pages.components.elements.ElementsPageCheckboxRow;
 import com.epam.tc.hw3.pages.components.elements.ElementsPageColorSelector;
 import com.epam.tc.hw3.pages.components.elements.ElementsPageLogPanel;
 import com.epam.tc.hw3.pages.components.elements.ElementsPageRadioRaw;
+import com.epam.tc.hw3.pages.components.homepage.HomePageLoginMenu;
 import java.util.Map;
 import org.assertj.core.api.Assertions;
 import org.openqa.selenium.WebDriver;
@@ -11,6 +12,7 @@ import org.openqa.selenium.WebDriver;
 
 public class DifferentElementsPageObject extends AbstractPageObject {
 
+    private HomePageLoginMenu loginMenu;
     private ElementsPageCheckboxRow checkboxRow;
     private ElementsPageRadioRaw radioRaw;
     private ElementsPageColorSelector colorSelector;
@@ -22,6 +24,12 @@ public class DifferentElementsPageObject extends AbstractPageObject {
         radioRaw = new ElementsPageRadioRaw(driver);
         colorSelector = new ElementsPageColorSelector(driver);
         logPanel = new ElementsPageLogPanel(driver);
+        loginMenu = new HomePageLoginMenu(driver);
+    }
+
+    @Override
+    public void logIn(String loginData, String passwordData) {
+        loginMenu.logIn(loginData, passwordData);
     }
 
     public void clickElementCheckBoxWithIndex(int index) {
