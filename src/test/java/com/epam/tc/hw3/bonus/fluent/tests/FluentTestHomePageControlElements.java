@@ -6,6 +6,7 @@ import com.epam.tc.hw3.tests.AbstractPagesUITest;
 import com.epam.tc.hw3.utils.PagesDataProviders;
 import java.util.List;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class FluentTestHomePageControlElements extends AbstractPagesUITest {

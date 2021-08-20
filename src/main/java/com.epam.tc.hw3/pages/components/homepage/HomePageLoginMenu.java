@@ -1,6 +1,5 @@
 package com.epam.tc.hw3.pages.components.homepage;
 
-
 import com.epam.tc.hw3.pages.components.AbstractComponent;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -22,17 +21,18 @@ public class HomePageLoginMenu extends AbstractComponent {
 
     @FindBy(id = "user-name")
     private WebElement userNameText;
-    private static final String LOGOUT_CLASS = "hidden";
 
     public HomePageLoginMenu(WebDriver driver) {
         super(driver);
     }
 
     public void logIn(String login, String password) {
-        userIcon.click();
-        nameField.sendKeys(login);
-        passwordField.sendKeys(password);
-        loginButton.click();
+        if (isNotSignedIn()) {
+            userIcon.click();
+            nameField.sendKeys(login);
+            passwordField.sendKeys(password);
+            loginButton.click();
+        }
     }
 
     public WebElement getUserNameText() {
@@ -46,6 +46,4 @@ public class HomePageLoginMenu extends AbstractComponent {
     public boolean isNotSignedIn() {
         return !isSignedIn();
     }
-
-
 }
