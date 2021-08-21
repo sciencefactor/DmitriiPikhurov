@@ -2,8 +2,9 @@
 
 <suite name="overallStepsPagesTest">
   <test name="overallPagesTest">
-    <packages>
-      <package name="com.epam.tc.hw4.tests"/>
-    </packages>
+    <classes>
+      <class name="com.epam.tc.hw4.tests.TestHomePageVisualElements"/>
+      <class name="com.epam.tc.hw4.tests.TestElementsPageLogsPanel"/>
+    </classes>
   </test>
 </suite>
