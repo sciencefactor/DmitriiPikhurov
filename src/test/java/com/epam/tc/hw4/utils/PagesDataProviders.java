@@ -41,11 +41,11 @@ public class PagesDataProviders {
 
     @DataProvider(name = "elementsPageExpectedLogs")
     static Object[][] elementsPageExpectedLogs() {
-        return new Object[][] {{2, 0, 2, 3, "Yellow", Map.of(
+        return new Object[][] {{Map.of(
             "Water", "true",
             "Wind", "true",
             "metal", "Selen",
-            "Colors", "Yellow")}};
+            "Colors", "Yellow"), "Water", "Wind", "Selen", "Yellow"}};
     }
 
     @DataProvider(name = "homePageExpectedPageTitle")

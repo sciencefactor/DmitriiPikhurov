@@ -13,55 +13,56 @@ import org.testng.annotations.Test;
 @Listeners({ScreenshotListener.class })
 public class TestHomePageVisualElements extends AbstractPagesUITest {
 
+
     @Test(dataProvider = "homePageExpectedPageTitle",
           dataProviderClass = PagesDataProviders.class,
           description = "Page title must be correct")
     void checkHomePageTitle(String expectedPageTitle) {
-        homePage.checkTitle(expectedPageTitle);
+        assertionStep.checkTitle(expectedPageTitle);
     }
 
     @Test(dataProvider = "userName",
           dataProviderClass = PagesDataProviders.class,
           description = "User must be logged in")
     void checkLogin(String expectedUserName) {
-        homePage.checkLogIn(expectedUserName);
+        assertionStep.checkLogIn(expectedUserName);
     }
 
     @Test(dataProvider = "homePageExpectedNavigationItemsQuantity",
           dataProviderClass = PagesDataProviders.class,
           description = "Page must have correct navigation items quantity on header")
     void checkNavigationItemsQuantity(int expectedNumber) {
-        homePage.checkNavigationItemsQuantity(expectedNumber);
+        assertionStep.checkNavigationItemsQuantity(expectedNumber);
     }
 
     @Test(dataProvider = "homePageExpectedBenefitIconsQuantity",
           dataProviderClass = PagesDataProviders.class, description = "Page must have correct benefit icons quantity")
     void checkBenefitIconsQuantity(int expectedNumber) {
-        homePage.checkIconsNumber(expectedNumber);
+        assertionStep.checkIconsNumber(expectedNumber);
     }
 
     @Test(dataProvider = "homePageExpectedBenefitTexts",
           dataProviderClass = PagesDataProviders.class,
           description = "Benefit containers must have correct text")
     void checkBenefitTexts(List<String> expectedTexts) {
-        homePage.checkBenefitTexts(expectedTexts);
+        assertionStep.checkBenefitTexts(expectedTexts);
     }
 
     @Test(description = "Page must have \"Button\" iframe")
     void checkIfIFrameExists() {
-        homePage.checkIfButtonFrameDisplayed();
+        assertionStep.checkIfButtonFrameDisplayed();
     }
 
     @Test(description = "\"Button\" iframe must have button")
     void checkIfIFrameContainsButton() {
-        homePage.switchToButtonFrame();
-        homePage.checkIfButtonDisplayed();
-        homePage.switchToParentFrame();
+        actionStep.switchToButtonFrame();
+        assertionStep.checkIfButtonDisplayed();
+        actionStep.switchToParentFrame();
     }
 
     @Test(dataProvider = "homePageExpectedSideBarElements",
           dataProviderClass = PagesDataProviders.class, description = "Sidebar menu must have correct items")
     void checkSideBarMenu(List<String> expectedSideBarElements) {
-        homePage.checkSidebarElements(expectedSideBarElements);
+        assertionStep.checkSidebarElements(expectedSideBarElements);
     }
 }
