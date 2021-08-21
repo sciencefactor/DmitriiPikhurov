@@ -1,9 +1,9 @@
-package com.epam.tc.hw3.tests;
+package com.epam.tc.hw4.tests;
 
-import com.epam.tc.hw3.pages.AbstractPageObject;
-import com.epam.tc.hw3.pages.HomePageObject;
-import com.epam.tc.hw3.utils.LoginUtils;
-import com.epam.tc.hw3.utils.WebDriverProvider;
+import com.epam.tc.hw4.pages.AbstractPageObject;
+import com.epam.tc.hw4.pages.HomePageObject;
+import com.epam.tc.hw4.utils.TestUsersProviderUtil;
+import com.epam.tc.hw4.utils.WebDriverProvider;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -14,7 +14,7 @@ public abstract class AbstractPagesUITest {
     public WebDriver webDriver;
     public HomePageObject homePage;
 
-    @BeforeClass
+    @BeforeClass(description = "Set up WebDriver, navigate to URL, initiate new HomPage()")
     public void setUp() {
         webDriver = WebDriverProvider.getChromeDriver();
         webDriver.manage().window().maximize();
@@ -22,16 +22,16 @@ public abstract class AbstractPagesUITest {
         homePage = new HomePageObject(webDriver);
     }
 
-    @BeforeMethod
+    @BeforeMethod(description = "If not logged in, then login")
     void loginPrecondition() {
         loginPrecondition(homePage);
     }
 
     protected <T extends AbstractPageObject> void loginPrecondition(T page) {
-        page.logIn(LoginUtils.getUsernameData(), LoginUtils.getPasswordData());
+        page.logIn(TestUsersProviderUtil.getUsernameData(), TestUsersProviderUtil.getPasswordData());
     }
 
-    @AfterClass
+    @AfterClass(description = "Close browser")
     public void closeBrowser() {
         webDriver.quit();
     }

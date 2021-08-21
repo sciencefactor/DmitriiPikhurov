@@ -1,5 +1,7 @@
-package com.epam.tc.hw4;
+package com.epam.tc.hw4.pages;
 
+import io.qameta.allure.Step;
+import org.checkerframework.checker.units.qual.Speed;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
@@ -12,5 +14,6 @@ public abstract class AbstractPageObject {
         PageFactory.initElements(driver, this);
     }
 
+    @Step
     public abstract void logIn(String loginData, String passwordData);
 }

@@ -1,6 +1,6 @@
-package com.epam.tc.hw4.components.homepage;
+package com.epam.tc.hw4.pages.components.homepage;
 
-import com.epam.tc.hw4.components.AbstractComponent;
+import com.epam.tc.hw4.pages.components.AbstractComponent;
 import java.util.List;
 import java.util.stream.Collectors;
 import org.openqa.selenium.WebDriver;

@@ -1,6 +1,6 @@
-package com.epam.tc.hw4.components.elements;
+package com.epam.tc.hw4.pages.components.elements;
 
-import com.epam.tc.hw4.components.AbstractComponent;
+import com.epam.tc.hw4.pages.components.AbstractComponent;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;

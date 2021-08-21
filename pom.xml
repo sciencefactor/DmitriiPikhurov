@@ -16,11 +16,15 @@
         <testng.version>7.4.0</testng.version>
         <assertj-core.version>3.20.2</assertj-core.version>
         <maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version>
-        <maven-surefire-plugin.suiteXmlFile>${project.build.testOutputDirectory}/testng/calculator.homework1.addition.subtraction.xml
+        <maven-surefire-plugin.suiteXmlFile>
+            ${project.build.testOutputDirectory}/testng/selenium.homework4.overall.tests.xml
         </maven-surefire-plugin.suiteXmlFile>
         <calculator.version>1</calculator.version>
         <webdrivermanager.version>4.4.3</webdrivermanager.version>
         <selenium-java.version>4.0.0-beta-4</selenium-java.version>
+        <allure.version>2.13.2</allure.version>
+        <aspectj.version>1.9.5</aspectj.version>
+        <allure-maven.version>2.10.0</allure-maven.version>
     </properties>
 
     <build>
@@ -30,12 +34,53 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>${maven-surefire-plugin.version}</version>
                 <configuration>
+                    <argLine>
+                        --illegal-access=permit
+                        -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
+                    </argLine>
                     <suiteXmlFiles>
                         <suiteXmlFile>
                             ${maven-surefire-plugin.suiteXmlFile}
                         </suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.aspectj</groupId>
+                        <artifactId>aspectjweaver</artifactId>
+                        <version>${aspectj.version}</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+
+            <plugin>
+                <groupId>com.alexecollins.maven.plugin</groupId>
+                <artifactId>script-maven-plugin</artifactId>
+                <version>1.0.0</version>
+                <executions>
+                    <execution>
+                        <phase>site</phase>
+                        <goals><goal>execute</goal></goals>
+                        <configuration>
+                            <language>javascript</language>
+                            <script>
+                                importPackage(java.awt);
+                                importPackage(java.net);
+                                var URI = Packages.java.net.URI;
+                                var html = new URI("http://localhost:63342/Dmitrii_Pikhurov/target/site/allure-maven-plugin/index.html")
+                                var Desktop = Packages.java.awt.Desktop;
+                                Desktop.getDesktop().browse(html);
+                            </script>
+                        </configuration>
+                    </execution>
+                </executions>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.mozilla</groupId>
+                        <artifactId>rhino</artifactId>
+                        <version>1.7.13</version>
+                    </dependency>
+                </dependencies>
             </plugin>
         </plugins>
     </build>
@@ -44,7 +89,8 @@
         <profile>
             <id>calculator-homework1-addition-subtraction-test</id>
             <properties>
-                <maven-surefire-plugin.suiteXmlFile>${project.build.testOutputDirectory}/testng/calculator.homework1.addition.subtraction.xml
+                <maven-surefire-plugin.suiteXmlFile>
+                    ${project.build.testOutputDirectory}/testng/calculator.homework1.addition.subtraction.xml
                 </maven-surefire-plugin.suiteXmlFile>
             </properties>
         </profile>
@@ -52,7 +98,8 @@
         <profile>
             <id>calculator-homework1-multiply-division-test</id>
             <properties>
-                <maven-surefire-plugin.suiteXmlFile>${project.build.testOutputDirectory}/testng/calculator.homework1.multiply.division.xml
+                <maven-surefire-plugin.suiteXmlFile>
+                    ${project.build.testOutputDirectory}/testng/calculator.homework1.multiply.division.xml
                 </maven-surefire-plugin.suiteXmlFile>
             </properties>
         </profile>
@@ -60,29 +107,42 @@
         <profile>
             <id>calculator-homework1-overall-test</id>
             <properties>
-                <maven-surefire-plugin.suiteXmlFile>${project.build.testOutputDirectory}/testng/calculator.homework1.overall.xml
+                <maven-surefire-plugin.suiteXmlFile>
+                    ${project.build.testOutputDirectory}/testng/calculator.homework1.overall.xml
                 </maven-surefire-plugin.suiteXmlFile>
             </properties>
         </profile>
         <profile>
             <id>selenium-homework2-overall-test</id>
             <properties>
-                <maven-surefire-plugin.suiteXmlFile>${project.build.testOutputDirectory}/testng/selenium.homework2.overall.xml
+                <maven-surefire-plugin.suiteXmlFile>
+                    ${project.build.testOutputDirectory}/testng/selenium.homework2.overall.xml
                 </maven-surefire-plugin.suiteXmlFile>
             </properties>
         </profile>
         <profile>
             <id>selenium-homework3-overall-void-pages-test</id>
             <properties>
-                <maven-surefire-plugin.suiteXmlFile>${project.build.testOutputDirectory}/testng/selenium.homework3.overall.void.page.object.xml
+                <maven-surefire-plugin.suiteXmlFile>
+                    ${project.build.testOutputDirectory}/testng/selenium.homework3.overall.void.page.object.xml
                 </maven-surefire-plugin.suiteXmlFile>
             </properties>
         </profile>
         <profile>
             <id>selenium-homework3-overall-fluent-pages-test</id>
             <properties>
-                <maven-surefire-plugin.suiteXmlFile>${project.build.testOutputDirectory}/testng/selenium.homework3.overall.fluent.page.object.xml
+                <maven-surefire-plugin.suiteXmlFile>
+                    ${project.build.testOutputDirectory}/testng/selenium.homework3.overall.fluent.page.object.xml
                 </maven-surefire-plugin.suiteXmlFile>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>selenium-homework4-overall-steps-pages-test</id>
+            <properties>
+                <maven-surefier-plugin.suiteXmlFile>
+                    ${project.build.testOutputDirectory}/testng/selenium.homework4.overall.tests.xml
+                </maven-surefier-plugin.suiteXmlFile>
             </properties>
         </profile>
     </profiles>
@@ -117,6 +177,25 @@
             <version>${webdrivermanager.version}</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-testng</artifactId>
+            <version>${allure.version}</version>
+        </dependency>
     </dependencies>
+
+    <reporting>
+        <excludeDefaults>true</excludeDefaults>
+        <plugins>
+            <plugin>
+                <groupId>io.qameta.allure</groupId>
+                <artifactId>allure-maven</artifactId>
+                <version>${allure-maven.version}</version>
+                <configuration>
+                    <reportVersion>${allure.version}</reportVersion>
+                </configuration>
+            </plugin>
+        </plugins>
+    </reporting>
 
 </project>

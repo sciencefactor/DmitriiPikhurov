@@ -1,4 +1,4 @@
-package com.epam.tc.hw3.utils;
+package com.epam.tc.hw4.utils;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -17,6 +17,7 @@ public class PagesDataProviders {
             {properties.getProperty("username"), properties.getProperty("password")}};
     }
 
+
     private static Properties loadProperties() {
         Properties userProperties = new Properties();
         try (InputStream inputStream = new FileInputStream("src/test/resources/textdata/userdata.properties")) {
@@ -31,6 +32,7 @@ public class PagesDataProviders {
     static Object[][] userName() {
         return new Object[][] {{"ROMAN IOVLEV"}};
     }
+
 
     @DataProvider(name = "homePageIndexOfDropdown")
     static Object[][] homePageIndexOfDropdown() {
@@ -76,4 +78,6 @@ public class PagesDataProviders {
     static Object[][] homePageExpectedSideBarElements() {
         return new Object[][] {{List.of("Home", "Contact form", "Service", "Metals & Colors", "Elements packs")}};
     }
+
+
 }

@@ -1,4 +1,4 @@
-package com.epam.tc.hw4.components;
+package com.epam.tc.hw4.pages.components;
 
 import java.time.Duration;
 import org.openqa.selenium.WebDriver;

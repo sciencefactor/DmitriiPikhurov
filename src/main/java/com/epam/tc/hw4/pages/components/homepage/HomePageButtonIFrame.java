@@ -1,7 +1,7 @@
-package com.epam.tc.hw4.components.homepage;
+package com.epam.tc.hw4.pages.components.homepage;
 
 
-import com.epam.tc.hw4.components.AbstractComponent;
+import com.epam.tc.hw4.pages.components.AbstractComponent;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
