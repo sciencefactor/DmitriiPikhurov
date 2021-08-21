@@ -6,7 +6,6 @@ import com.epam.tc.hw4.pages.components.elements.ElementsPageLogPanel;
 import com.epam.tc.hw4.pages.components.elements.ElementsPageRadioRaw;
 import com.epam.tc.hw4.pages.components.homepage.HomePageLoginMenu;
 import java.util.Map;
-import org.assertj.core.api.Assertions;
 import org.openqa.selenium.WebDriver;
 
 
@@ -48,8 +47,8 @@ public class DifferentElementsPageObject extends AbstractPageObject {
     }
 
     
-    public void checkIfLogsListPanelCorrect(Map<String, String> expectedLogs) {
-        Assertions.assertThat(logPanel.getMapOfLogs()).isEqualTo(expectedLogs);
+    public Map<String, String> getMapOfLogsFromLogPanel() {
+        return logPanel.getMapOfLogs();
     }
 
 }

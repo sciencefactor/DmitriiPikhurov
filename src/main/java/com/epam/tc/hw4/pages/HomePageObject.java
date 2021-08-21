@@ -6,8 +6,8 @@ import com.epam.tc.hw4.pages.components.homepage.HomePageLoginMenu;
 import com.epam.tc.hw4.pages.components.homepage.HomePageNavigationBar;
 import com.epam.tc.hw4.pages.components.homepage.HomePageSidebar;
 import java.util.List;
-import org.assertj.core.api.Assertions;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 public class HomePageObject extends AbstractPageObject {
 
@@ -28,8 +28,8 @@ public class HomePageObject extends AbstractPageObject {
         sidebar = new HomePageSidebar(driver);
     }
 
-    public void checkTitle(String title) {
-        Assertions.assertThat(webDriver.getTitle()).isEqualTo(title);
+    public String getTitle() {
+        return webDriver.getTitle();
     }
 
 
@@ -39,29 +39,28 @@ public class HomePageObject extends AbstractPageObject {
     }
 
     
-    public void checkLogIn(String expectedUserName) {
-        Assertions.assertThat(loginMenu.getUserNameText().isDisplayed()).isTrue();
-        Assertions.assertThat(loginMenu.getUserNameText().getText()).isEqualTo(expectedUserName);
+    public WebElement getLogIn() {
+        return loginMenu.getUserNameText();
     }
 
     
-    public void checkNavigationItemsQuantity(int expectedNumber) {
-        Assertions.assertThat(navigationBar.getNavigationBarItemsQuantity()).isEqualTo(expectedNumber);
+    public int getNavigationItemsQuantity() {
+        return navigationBar.getNavigationBarItemsQuantity();
     }
 
     
-    public void checkIconsNumber(int expectedNumber) {
-        Assertions.assertThat(benefitsContainer.getBenefitsIconsQuantity()).isEqualTo(expectedNumber);
+    public int getIconsNumber() {
+        return benefitsContainer.getBenefitsIconsQuantity();
     }
 
     
-    public void checkBenefitTexts(List<String> expectedBenefitTexts) {
-        Assertions.assertThat(benefitsContainer.getBenefitTextsExtracted()).isEqualTo(expectedBenefitTexts);
+    public List<String> getBenefitTexts() {
+        return benefitsContainer.getBenefitTextsExtracted();
     }
 
     
-    public void checkIfButtonFrameDisplayed() {
-        Assertions.assertThat(buttonIFrame.getButtonIFrame().isDisplayed()).isTrue();
+    public WebElement getButtonFrame() {
+        return buttonIFrame.getButtonIFrame();
     }
 
     
@@ -70,8 +69,8 @@ public class HomePageObject extends AbstractPageObject {
     }
 
     
-    public void checkIfButtonDisplayed() {
-        Assertions.assertThat(buttonIFrame.getButton().isDisplayed()).isTrue();
+    public WebElement getButton() {
+        return buttonIFrame.getButton();
     }
 
     
@@ -80,8 +79,8 @@ public class HomePageObject extends AbstractPageObject {
     }
 
     
-    public void checkSidebarElements(List<String> expectedSidebarElements) {
-        Assertions.assertThat(sidebar.getSidebarElementsExtracted()).isEqualTo(expectedSidebarElements);
+    public List<String> getSidebarElementsText() {
+        return sidebar.getSidebarElementsExtracted();
     }
 
 
