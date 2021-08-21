@@ -6,7 +6,7 @@
   </listeners>
   <test name="overallPagesTest">
     <classes>
-      <class name="com.epam.tc.hw4.tests.HomePageFailingTest"/>
+      <class name="com.epam.tc.hw4.tests.TestHomePageFailing"/>
     </classes>
   </test>
 </suite>
