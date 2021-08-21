@@ -14,7 +14,7 @@ public abstract class AbstractPagesUITest {
     public WebDriver webDriver;
     public HomePageObject homePage;
 
-    @BeforeClass(description = "Set up WebDriver, navigate to URL, initiate new HomPage()")
+    @BeforeClass(description = "Set up WebDriver, navigate to https://jdi-testing.github.io/jdi-light/index.html")
     public void setUp() {
         webDriver = WebDriverProvider.getChromeDriver();
         webDriver.manage().window().maximize();
