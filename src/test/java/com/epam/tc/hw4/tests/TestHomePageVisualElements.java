@@ -1,13 +1,16 @@
 package com.epam.tc.hw4.tests;
 
+import com.epam.tc.hw4.listeners.ScreenshotListener;
 import com.epam.tc.hw4.utils.PagesDataProviders;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
 import java.util.List;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 @Feature("Home Page contains navigation and sidebar items, benefits, \"Button\" iframe")
 @Story("User should see all navigation and sidebar items, benefits, \"Button\" iframe")
+@Listeners({ScreenshotListener.class })
 public class TestHomePageVisualElements extends AbstractPagesUITest {
 
     @Test(dataProvider = "homePageExpectedPageTitle",

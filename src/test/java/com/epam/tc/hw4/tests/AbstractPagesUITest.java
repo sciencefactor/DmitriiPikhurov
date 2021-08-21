@@ -5,6 +5,7 @@ import com.epam.tc.hw4.pages.HomePageObject;
 import com.epam.tc.hw4.utils.TestUsersProviderUtil;
 import com.epam.tc.hw4.utils.WebDriverProvider;
 import org.openqa.selenium.WebDriver;
+import org.testng.ITestContext;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
@@ -15,8 +16,9 @@ public abstract class AbstractPagesUITest {
     public HomePageObject homePage;
 
     @BeforeClass(description = "Set up WebDriver, navigate to https://jdi-testing.github.io/jdi-light/index.html")
-    public void setUp() {
+    public void setUp(ITestContext context) {
         webDriver = WebDriverProvider.getChromeDriver();
+        context.setAttribute("driver", webDriver);
         webDriver.manage().window().maximize();
         webDriver.navigate().to("https://jdi-testing.github.io/jdi-light/index.html");
         homePage = new HomePageObject(webDriver);
@@ -24,11 +26,7 @@ public abstract class AbstractPagesUITest {
 
     @BeforeMethod(description = "If not logged in, then login")
     void loginPrecondition() {
-        loginPrecondition(homePage);
-    }
-
-    protected <T extends AbstractPageObject> void loginPrecondition(T page) {
-        page.logIn(TestUsersProviderUtil.getUsernameData(), TestUsersProviderUtil.getPasswordData());
+        homePage.logIn(TestUsersProviderUtil.getUsernameData(), TestUsersProviderUtil.getPasswordData());
     }
 
     @AfterClass(description = "Close browser")

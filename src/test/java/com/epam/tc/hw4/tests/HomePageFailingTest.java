@@ -1,9 +1,12 @@
 package com.epam.tc.hw4.tests;
 
+import com.epam.tc.hw4.listeners.ScreenshotListener;
 import com.epam.tc.hw4.utils.PagesDataProviders;
 import java.util.List;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
+@Listeners({ScreenshotListener.class })
 public class HomePageFailingTest extends AbstractPagesUITest {
 
     @Test(dataProvider = "homePageExpectedPageTitle",

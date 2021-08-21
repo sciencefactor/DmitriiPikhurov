@@ -1,14 +1,17 @@
 package com.epam.tc.hw4.tests;
 
+import com.epam.tc.hw4.listeners.ScreenshotListener;
 import com.epam.tc.hw4.pages.DifferentElementsPageObject;
 import com.epam.tc.hw4.utils.PagesDataProviders;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
 import java.util.Map;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 @Feature("Logs Panel shows all user action")
 @Story("User need to check all his actions on current page")
+@Listeners({ScreenshotListener.class })
 public class TestElementsPageLogsPanel extends AbstractPagesUITest {
 
     private DifferentElementsPageObject elementsPage;
