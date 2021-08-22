@@ -12,7 +12,7 @@ public class ActionStep extends AbstractStep {
     }
 
     @Step("Open Home Page site")
-    public void openHomePage(){
+    public void openHomePage() {
         homePage.openSite();
     }
 

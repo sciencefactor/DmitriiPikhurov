@@ -14,8 +14,9 @@ public abstract class AbstractPageObject {
         PageFactory.initElements(driver, this);
     }
 
-    public void openSite(){
+    public void openSite() {
         webDriver.navigate().to(BASE_URL);
     }
+
     public abstract void logIn(String loginData, String passwordData);
 }

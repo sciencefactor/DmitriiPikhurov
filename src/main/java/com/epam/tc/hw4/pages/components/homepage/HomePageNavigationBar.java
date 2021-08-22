@@ -9,7 +9,7 @@ import org.openqa.selenium.support.FindBy;
 
 public class HomePageNavigationBar extends AbstractComponent {
 
-    private final static String SERVICE = "SERVICE";
+    private static final String SERVICE = "SERVICE";
 
     @FindBy(css = "ul[class=\"uui-navigation nav navbar-nav m-l8\"]>li")
     private List<WebElement> navigationBarItems;

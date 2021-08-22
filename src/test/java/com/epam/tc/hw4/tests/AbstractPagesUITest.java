@@ -26,7 +26,7 @@ public abstract class AbstractPagesUITest {
     }
 
     @BeforeMethod
-    public void login(){
+    public void login() {
         actionStep.login();
     }
 

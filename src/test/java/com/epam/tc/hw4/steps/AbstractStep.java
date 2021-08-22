@@ -9,7 +9,7 @@ public abstract class AbstractStep {
     protected HomePageObject homePage;
     protected DifferentElementsPageObject elementsPage;
 
-    protected AbstractStep(WebDriver webDriver){
+    protected AbstractStep(WebDriver webDriver) {
         homePage = new HomePageObject(webDriver);
         elementsPage = new DifferentElementsPageObject(webDriver);
     }
