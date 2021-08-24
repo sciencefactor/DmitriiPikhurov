@@ -7,10 +7,10 @@ import com.epam.jdi.light.ui.html.elements.complex.RadioButtons;
 
 public class SummarySection {
 
-    @Css("section[id=\"odds-selector\"]>p>input")
+    @Css("section[id=odds-selector]>p>input")
     public RadioButtons oddSelector;
 
-    @Css("section[id=\"even-selector\"]>p>input")
+    @Css("section[id=even-selector]>p>input")
     public RadioButtons evenSelector;
 
     @FindBy(id = "calculate-button")

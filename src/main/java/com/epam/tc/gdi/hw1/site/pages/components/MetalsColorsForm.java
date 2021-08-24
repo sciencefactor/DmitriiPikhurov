@@ -10,10 +10,10 @@ import com.epam.tc.gdi.hw1.site.entities.MetalsColors;
 
 public class MetalsColorsForm extends Form<MetalsColors> {
 
-    @Css("section[class=\"uui-info-panel-horizontal panel-gray\"]")
+    @Css("div[id=summary-block]")
     public SummarySection summary;
 
-    @Css("section[class=\"uui-info-panel-horizontal panel-gray elements\"]")
+    @Css("div[id=elements-block]")
     public ElementsSection elements;
 
 

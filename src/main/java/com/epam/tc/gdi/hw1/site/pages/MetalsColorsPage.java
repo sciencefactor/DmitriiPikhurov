@@ -6,6 +6,6 @@ import com.epam.tc.gdi.hw1.site.pages.components.MetalsColorsForm;
 
 public class MetalsColorsPage {
 
-    @Css("form[class=\"form\"]")
+    @Css("form[class=form]")
     public static MetalsColorsForm metalsColorsForm;
 }

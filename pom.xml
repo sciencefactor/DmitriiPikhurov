@@ -23,8 +23,9 @@
     <webdrivermanager.version>4.4.3</webdrivermanager.version>
     <selenium-java.version>4.0.0-beta-4</selenium-java.version>
     <allure.version>2.13.2</allure.version>
-    <aspectj.version>1.9.6</aspectj.version>
+    <aspectj.version>1.9.5</aspectj.version>
     <allure-maven.version>2.10.0</allure-maven.version>
+    <jdi-light.version>1.3.10</jdi-light.version>
   </properties>
 
   <build>
@@ -202,7 +203,7 @@
     <dependency>
       <groupId>com.epam.jdi</groupId>
       <artifactId>jdi-light-html</artifactId>
-      <version>1.3.10</version>
+      <version>${jdi-light.version}</version>
     </dependency>
   </dependencies>
 
