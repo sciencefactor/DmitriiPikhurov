@@ -8,7 +8,7 @@ import org.openqa.selenium.WebElement;
 public class LoginForm extends Form<User> {
 
     @FindBy(id = "name")
-    public static WebElement username;
+    public static WebElement name;
 
     @FindBy(id = "password")
     public static WebElement password;

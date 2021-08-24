@@ -2,14 +2,14 @@ package com.epam.tc.gdi.hw1.site.entities;
 
 public class User  {
 
-    private String username;
-    private String fullName;
+    private String name;
     private String password;
+    private String fullName;
 
     public User(String username, String fullName, String password) {
-        this.username = username;
-        this.fullName = fullName;
+        this.name = username;
         this.password = password;
+        this.fullName = fullName;
     }
 
     public String getFullName() {
@@ -21,11 +21,11 @@ public class User  {
     }
 
     public String getUsername() {
-        return username;
+        return name;
     }
 
     public void setUsername(String username) {
-        this.username = username;
+        this.name = username;
     }
 
 
