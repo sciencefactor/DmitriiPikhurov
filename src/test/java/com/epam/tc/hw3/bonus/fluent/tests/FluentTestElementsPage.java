@@ -1,12 +1,11 @@
 package com.epam.tc.hw3.bonus.fluent.tests;
 
-import com.epam.tc.hw3.bonus.fluent.pages.FluentDifferentElementsPageObject;
-import com.epam.tc.hw3.bonus.fluent.pages.FluentHomePageObject;
+import com.epam.tc.hw3.pages.fluent.FluentDifferentElementsPageObject;
+import com.epam.tc.hw3.pages.fluent.FluentHomePageObject;
 import com.epam.tc.hw3.tests.AbstractPagesUITest;
 import com.epam.tc.hw3.utils.PagesDataProviders;
 import java.util.Map;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class FluentTestElementsPage extends AbstractPagesUITest {

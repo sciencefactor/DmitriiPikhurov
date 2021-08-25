@@ -1,4 +1,4 @@
-package com.epam.tc.hw3.bonus.fluent.pages;
+package com.epam.tc.hw3.pages.fluent;
 
 import com.epam.tc.hw3.pages.AbstractPageObject;
 import com.epam.tc.hw3.pages.components.homepage.HomePageBenefitsContainer;

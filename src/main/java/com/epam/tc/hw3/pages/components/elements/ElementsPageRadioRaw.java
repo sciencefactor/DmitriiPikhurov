@@ -18,4 +18,8 @@ public class ElementsPageRadioRaw extends AbstractComponent {
     public void clickElementsRadioWithIndex(int index) {
         elementsRadios.get(index).click();
     }
+
+    public void clickElementsRadioWithText(int index) {
+
+    }
 }

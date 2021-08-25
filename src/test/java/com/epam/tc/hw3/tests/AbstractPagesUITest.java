@@ -14,7 +14,6 @@ public abstract class AbstractPagesUITest {
     public WebDriver webDriver;
     public HomePageObject homePage;
 
-
     @BeforeClass
     public void setUp() {
         webDriver = WebDriverProvider.getChromeDriver();
@@ -24,15 +23,13 @@ public abstract class AbstractPagesUITest {
     }
 
     @BeforeMethod
-    void loginPrecondition(){
+    void loginPrecondition() {
         loginPrecondition(homePage);
     }
-
 
     protected <T extends AbstractPageObject> void loginPrecondition(T page) {
         page.logIn(LoginUtils.getUsernameData(), LoginUtils.getPasswordData());
     }
-
 
     @AfterClass
     public void closeBrowser() {
