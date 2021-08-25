@@ -11,44 +11,62 @@ import io.qameta.allure.Step;
 public class ActionStep extends AbstractStep {
 
 
-    @Given("User opens Gdi Home page")
+    @Given("I open JDI GitHub site")
     @Step("Open Home Page site")
     public void openHomePage() {
         homePage.openSite();
     }
 
-    @Given("User login")
+    @Given("I login as user \"Roman Iovlev\"")
     @Step("Login")
     public void login() {
         homePage.logIn(TestUsersProviderUtil.getUsernameData(), TestUsersProviderUtil.getPasswordData());
     }
 
-    @Given("User navigate to Different Elements Page")
+    @Given("I navigate to Different Elements Page")
     @Step("Go to Elements Page via Service header element")
     public void navigateToElementsPage() {
         homePage.clickNavigationItemService();
         homePage.clickRefDifferentElements();
     }
 
-    @When("User clicks on {string} checkbox")
-    @Step("Click Checkbox with name {text}")
+    @Given("I click on \"Service\" button in Header")
+    @Step("Click on \"Service\" button on Home page")
+    public void clickServiceButton(){
+        homePage.clickNavigationItemService();
+    }
+
+    @Given("I click on {string} button in Service dropdown")
+    @Step("Click on button in Service dropdown on Home Page")
+    public void clickHeaderButton(String pageName){
+        homePage.clickHeaderUserTableButton(pageName);
+    }
+
+    @When("I click on {string} checkbox")
+    @Step("Click Checkbox with name {text} on Elements page")
     public void clickElementCheckBoxWithText(String text) {
         TestContext.getInstance().addTestObjectInList("checkboxes", text);
         elementsPage.clickElementsCheckBoxWithText(text);
     }
 
-    @When("User clicks on {string} radio")
-    @Step("Click Radio with name {text}")
+    @When("I click on {string} radio")
+    @Step("Click Radio with name {text} on Elements page")
     public void clickElementsRadioWithText(String text) {
         TestContext.getInstance().addTestObject("radio", text);
         elementsPage.clickElementsRadioWithText(text);
     }
 
-    @When("User choose {string} color in dropdown list")
-    @Step("Choose {color} color in Dropdown Menu")
+    @When("I choose {string} color in dropdown list")
+    @Step("Choose {color} color in Dropdown Menu on Elements page")
     public void chooseColorDropdownMenu(String color) {
         TestContext.getInstance().addTestObject("dropdown-color", color);
         elementsPage.chooseColorDropdownMenu(color);
+    }
+
+    @When("I select 'vip' checkbox for {string}")
+    @Step("select VIP checkbox on User Table page")
+    public void selectVipCheckBox(String username){
+        userTable.table.setVip(username);
     }
 
     @Step("Switch to frame containing Button")

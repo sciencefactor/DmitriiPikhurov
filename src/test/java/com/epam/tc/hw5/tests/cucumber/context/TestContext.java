@@ -1,7 +1,6 @@
 package com.epam.tc.hw5.tests.cucumber.context;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;

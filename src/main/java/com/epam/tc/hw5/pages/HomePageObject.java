@@ -2,9 +2,6 @@ package com.epam.tc.hw5.pages;
 
 import com.epam.tc.hw5.pages.components.homepage.HomePageBenefitsContainer;
 import com.epam.tc.hw5.pages.components.homepage.HomePageButtonIFrame;
-import com.epam.tc.hw5.pages.components.homepage.HomePageLoginMenu;
-import com.epam.tc.hw5.pages.components.homepage.HomePageNavigationBar;
-import com.epam.tc.hw5.pages.components.homepage.HomePageSidebar;
 import java.util.List;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -12,20 +9,14 @@ import org.openqa.selenium.WebElement;
 public class HomePageObject extends AbstractPageObject {
 
 
-    private HomePageLoginMenu loginMenu;
-    private HomePageNavigationBar navigationBar;
     private HomePageBenefitsContainer benefitsContainer;
     private HomePageButtonIFrame buttonIFrame;
-    private HomePageSidebar sidebar;
 
 
     public HomePageObject(WebDriver driver) {
         super(driver);
-        loginMenu = new HomePageLoginMenu(driver);
-        navigationBar = new HomePageNavigationBar(driver);
         benefitsContainer = new HomePageBenefitsContainer(driver);
         buttonIFrame = new HomePageButtonIFrame(driver);
-        sidebar = new HomePageSidebar(driver);
     }
 
     public String getTitle() {
@@ -91,5 +82,9 @@ public class HomePageObject extends AbstractPageObject {
 
     public void clickNavigationItemService() {
         navigationBar.clickService();
+    }
+
+    public void clickHeaderUserTableButton(String pageName) {
+        navigationBar.clickRefUserTable(pageName);
     }
 }

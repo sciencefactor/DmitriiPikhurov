@@ -2,27 +2,20 @@ package com.epam.tc.hw5.pages;
 
 import com.epam.tc.hw5.pages.components.elements.ElementsPageCheckboxRow;
 import com.epam.tc.hw5.pages.components.elements.ElementsPageColorSelector;
-import com.epam.tc.hw5.pages.components.elements.ElementsPageLogPanel;
 import com.epam.tc.hw5.pages.components.elements.ElementsPageRadioRaw;
-import com.epam.tc.hw5.pages.components.homepage.HomePageLoginMenu;
-import java.util.Map;
 import org.openqa.selenium.WebDriver;
 
 public class DifferentElementsPageObject extends AbstractPageObject {
 
-    private HomePageLoginMenu loginMenu;
     private ElementsPageCheckboxRow checkboxRow;
     private ElementsPageRadioRaw radioRaw;
     private ElementsPageColorSelector colorSelector;
-    private ElementsPageLogPanel logPanel;
 
     public DifferentElementsPageObject(WebDriver driver) {
         super(driver);
         checkboxRow = new ElementsPageCheckboxRow(driver);
         radioRaw = new ElementsPageRadioRaw(driver);
         colorSelector = new ElementsPageColorSelector(driver);
-        logPanel = new ElementsPageLogPanel(driver);
-        loginMenu = new HomePageLoginMenu(driver);
     }
 
     @Override
@@ -46,8 +39,6 @@ public class DifferentElementsPageObject extends AbstractPageObject {
     }
 
     
-    public Map<String, String> getMapOfLogsFromLogPanel() {
-        return logPanel.getMapOfLogs();
-    }
+
 
 }

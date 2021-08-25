@@ -1,15 +1,16 @@
-package com.epam.tc.hw5.pages.components.elements;
+package com.epam.tc.hw5.pages.components;
 
 import com.epam.tc.hw5.pages.components.AbstractComponent;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Consumer;
+import java.util.stream.Collectors;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class ElementsPageLogPanel extends AbstractComponent {
+public class LogPanel extends AbstractComponent {
 
     @FindBy(css = "ul[class=\"panel-body-list logs\"]>li")
     List<WebElement> logsListPanel;
@@ -17,7 +18,7 @@ public class ElementsPageLogPanel extends AbstractComponent {
     private static final int ORDER_OF_NAME_WORD_IN_LOG = 1;
     private static final int ORDER_OF_STATUS_WORD_IN_LOG = 5;
 
-    public ElementsPageLogPanel(WebDriver driver) {
+    public LogPanel(WebDriver driver) {
         super(driver);
     }
 
@@ -30,5 +31,7 @@ public class ElementsPageLogPanel extends AbstractComponent {
         return extractedLogs;
     }
 
-
+    public List<String> getListOfLogs() {
+        return logsListPanel.stream().map(WebElement::getText).collect(Collectors.toList());
+    }
 }

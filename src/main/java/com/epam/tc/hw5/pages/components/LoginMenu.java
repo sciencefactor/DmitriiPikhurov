@@ -1,11 +1,11 @@
-package com.epam.tc.hw5.pages.components.homepage;
+package com.epam.tc.hw5.pages.components;
 
 import com.epam.tc.hw5.pages.components.AbstractComponent;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class HomePageLoginMenu extends AbstractComponent {
+public class LoginMenu extends AbstractComponent {
 
     @FindBy(id = "user-icon")
     private WebElement userIcon;
@@ -22,7 +22,7 @@ public class HomePageLoginMenu extends AbstractComponent {
     @FindBy(id = "user-name")
     private WebElement userNameText;
 
-    public HomePageLoginMenu(WebDriver driver) {
+    public LoginMenu(WebDriver driver) {
         super(driver);
     }
 
