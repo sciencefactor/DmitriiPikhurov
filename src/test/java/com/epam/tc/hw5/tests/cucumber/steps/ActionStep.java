@@ -1,15 +1,12 @@
 package com.epam.tc.hw5.tests.cucumber.steps;
 
-
 import com.epam.tc.hw5.tests.cucumber.context.TestContext;
 import com.epam.tc.hw5.utils.TestUsersProviderUtil;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 import io.qameta.allure.Step;
 
-
 public class ActionStep extends AbstractStep {
-
 
     @Given("I open JDI GitHub site")
     @Step("Open Home Page site")
@@ -32,13 +29,13 @@ public class ActionStep extends AbstractStep {
 
     @Given("I click on \"Service\" button in Header")
     @Step("Click on \"Service\" button on Home page")
-    public void clickServiceButton(){
+    public void clickServiceButton() {
         homePage.clickNavigationItemService();
     }
 
     @Given("I click on {string} button in Service dropdown")
     @Step("Click on button in Service dropdown on Home Page")
-    public void clickHeaderButton(String pageName){
+    public void clickHeaderButton(String pageName) {
         homePage.clickHeaderUserTableButton(pageName);
     }
 
@@ -65,7 +62,7 @@ public class ActionStep extends AbstractStep {
 
     @When("I select 'vip' checkbox for {string}")
     @Step("select VIP checkbox on User Table page")
-    public void selectVipCheckBox(String username){
+    public void selectVipCheckBox(String username) {
         userTable.table.setVip(username);
     }
 

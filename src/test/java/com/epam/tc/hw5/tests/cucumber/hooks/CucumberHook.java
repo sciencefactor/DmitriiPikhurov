@@ -10,9 +10,8 @@ public class CucumberHook {
 
     private WebDriver webDriver;
 
-
     @Before
-    public void initDriver(){
+    public void initDriver() {
         webDriver = WebDriverProvider.getChromeDriver();
         webDriver.manage().window().maximize();
         TestContext.getInstance().addTestObject("driver", webDriver);

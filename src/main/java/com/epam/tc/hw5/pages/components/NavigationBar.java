@@ -46,8 +46,10 @@ public class NavigationBar extends AbstractComponent {
     }
 
     public void clickRefUserTable(String pageName) {
-        Predicate<String> predicate = element -> element.toLowerCase(Locale.ROOT).equals(pageName.toLowerCase(Locale.ROOT));
-        serviceItems.stream().filter(webElement -> predicate.test(webElement.getText()))
+        Predicate<String> predicate = element -> element.toLowerCase(Locale.ROOT)
+                                                        .equals(pageName.toLowerCase(Locale.ROOT));
+        serviceItems.stream()
+                    .filter(webElement -> predicate.test(webElement.getText()))
                     .findFirst()
                     .orElseThrow().click();
     }

@@ -1,6 +1,5 @@
 package com.epam.tc.hw5.pages.components;
 
-import com.epam.tc.hw5.pages.components.AbstractComponent;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -32,6 +31,9 @@ public class LogPanel extends AbstractComponent {
     }
 
     public List<String> getListOfLogs() {
-        return logsListPanel.stream().map(WebElement::getText).collect(Collectors.toList());
+        return logsListPanel.stream()
+                            .map(WebElement::getText)
+                            .map(log -> log.split(" ", 2)[1])
+                            .collect(Collectors.toList());
     }
 }
