@@ -171,6 +171,14 @@
         </maven-surefire-plugin.suiteXmlFile>
       </properties>
     </profile>
+    <profile>
+      <id>selenium-homework6-overall</id>
+      <properties>
+        <maven-surefire-plugin.suiteXmlFile>
+          ${project.build.testOutputDirectory}/testng/selenium.homework6.overall.xml
+        </maven-surefire-plugin.suiteXmlFile>
+      </properties>
+    </profile>
   </profiles>
 
   <dependencies>
@@ -201,7 +209,7 @@
       <groupId>io.github.bonigarcia</groupId>
       <artifactId>webdrivermanager</artifactId>
       <version>${webdrivermanager.version}</version>
-      <scope>test</scope>
+      <scope>compile</scope>
     </dependency>
     <dependency>
       <groupId>io.qameta.allure</groupId>
