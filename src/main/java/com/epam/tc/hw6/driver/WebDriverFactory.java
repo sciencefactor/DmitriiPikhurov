@@ -1,6 +1,5 @@
 package com.epam.tc.hw6.driver;
 
-
 import io.github.bonigarcia.wdm.WebDriverManager;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -51,7 +50,7 @@ public class WebDriverFactory {
     private static RemoteWebDriver tryGetRemoteWebDriver(Capabilities capabilities) {
         try {
             return new RemoteWebDriver(new URL(HUB_URL), Objects.requireNonNull(capabilities));
-        } catch (MalformedURLException e){
+        } catch (MalformedURLException e) {
             throw new InvalidOpenTypeException(String.format("Invalid Selenium hub URL: %s", HUB_URL));
         }
     }

@@ -1,8 +1,8 @@
 package com.epam.tc.hw6.tests;
 
+import com.epam.tc.hw6.driver.WebDriverProvider;
 import com.epam.tc.hw6.steps.ActionStep;
 import com.epam.tc.hw6.steps.AssertionStep;
-import com.epam.tc.hw6.driver.WebDriverProvider;
 import org.openqa.selenium.WebDriver;
 import org.testng.ITestContext;
 import org.testng.annotations.AfterClass;
