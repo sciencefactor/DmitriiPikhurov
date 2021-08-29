@@ -1,6 +1,5 @@
-package com.epam.tc.gdi.hw1.site.pages.components;
+package com.epam.tc.gdi.hw1.site.pages.components.simple;
 
-import com.epam.jdi.light.elements.complex.Checklist;
 import com.epam.jdi.light.elements.composite.Section;
 import com.epam.jdi.light.elements.pageobjects.annotations.locators.UI;
 
@@ -8,5 +7,5 @@ import com.epam.jdi.light.elements.pageobjects.annotations.locators.UI;
 public class ElementsSection extends Section {
 
     @UI("[type=checkbox]")
-    public Checklist checklist;
+    public HiddenCheckList checklist;
 }

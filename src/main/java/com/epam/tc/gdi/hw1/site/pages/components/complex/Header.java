@@ -1,11 +1,12 @@
-package com.epam.tc.gdi.hw1.site.pages.components;
+package com.epam.tc.gdi.hw1.site.pages.components.complex;
 
-import com.epam.jdi.light.elements.complex.JList;
 import com.epam.jdi.light.elements.composite.Section;
 import com.epam.jdi.light.elements.pageobjects.annotations.FindBy;
 import com.epam.jdi.light.elements.pageobjects.annotations.locators.Css;
 import com.epam.jdi.light.ui.html.elements.common.Button;
 import com.epam.jdi.light.ui.html.elements.common.Icon;
+import com.epam.tc.gdi.hw1.site.pages.components.simple.HeaderNavigation;
+import com.epam.tc.gdi.hw1.site.pages.components.simple.LoginForm;
 
 public class Header extends Section {
 

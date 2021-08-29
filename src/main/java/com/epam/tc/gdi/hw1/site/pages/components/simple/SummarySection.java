@@ -1,4 +1,4 @@
-package com.epam.tc.gdi.hw1.site.pages.components;
+package com.epam.tc.gdi.hw1.site.pages.components.simple;
 
 import com.epam.jdi.light.elements.pageobjects.annotations.FindBy;
 import com.epam.jdi.light.elements.pageobjects.annotations.locators.Css;

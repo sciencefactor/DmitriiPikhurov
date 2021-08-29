@@ -1,7 +1,7 @@
 package com.epam.tc.gdi.hw1.tests.steps;
 
 import com.epam.tc.gdi.hw1.site.entities.Users;
-import com.epam.tc.gdi.hw1.site.pages.components.Header;
+import com.epam.tc.gdi.hw1.site.pages.components.complex.Header;
 
 public class Preconditions {
 
