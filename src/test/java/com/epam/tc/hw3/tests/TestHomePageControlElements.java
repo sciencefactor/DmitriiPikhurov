@@ -1,11 +1,8 @@
 package com.epam.tc.hw3.tests;
 
 
-import com.epam.tc.hw3.pages.HomePageObject;
 import com.epam.tc.hw3.utils.PagesDataProviders;
 import java.util.List;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class TestHomePageControlElements extends AbstractPagesUITest {
