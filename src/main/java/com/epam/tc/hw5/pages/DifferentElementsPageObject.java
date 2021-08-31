@@ -38,7 +38,4 @@ public class DifferentElementsPageObject extends AbstractPageObject {
         colorSelector.chooseColor(color);
     }
 
-    
-
-
 }
