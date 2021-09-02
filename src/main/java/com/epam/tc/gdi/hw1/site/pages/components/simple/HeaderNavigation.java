@@ -11,19 +11,19 @@ import com.epam.jdi.light.ui.html.elements.common.Link;
 
 public class HeaderNavigation extends Section {
 
-    @FindBy(css = "a[href=\"index.html\"]")
+    @FindBy(css = "a[href='index.html']")
     public Link home;
 
-    @FindBy(css = "a[href=\"contacts.html\"]")
+    @FindBy(css = "a[href='contacts.html']")
     public Link contacts;
 
-    @FindBy(css = "a[class=\"dropdown-toggle\"]")
+    @FindBy(css = "a[class='dropdown-toggle']")
     public Button service;
 
-    @FindBy(css = "a[href=\"metals-colors.html\"]")
+    @FindBy(css = "a[href='metals-colors.html']")
     public Link metalsColors;
 
-    @Css("ul[class=\"dropdown-menu\"]")
+    @Css("ul[class='dropdown-menu']")
     public WebList dropdown;
 
 }

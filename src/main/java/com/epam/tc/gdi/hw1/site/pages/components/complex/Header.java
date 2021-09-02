@@ -19,6 +19,6 @@ public class Header extends Section {
     @FindBy(id = "user-name")
     public static Button userNameText;
 
-    @Css("ul[class=\"uui-navigation nav navbar-nav m-l8\"]")
+    @Css("ul[class='uui-navigation nav navbar-nav m-l8']")
     public static HeaderNavigation navigation;
 }

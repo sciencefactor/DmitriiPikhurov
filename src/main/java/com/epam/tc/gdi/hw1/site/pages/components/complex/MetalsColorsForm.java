@@ -39,6 +39,7 @@ public class MetalsColorsForm extends Form<MetalColorEntity> {
     public Button submit;
 
     @JDIAction("Fill '{name}' with {0}")
+    @Override
     public void fill(MetalColorEntity entity) {
         summary.oddSelector.select(entity.summary.get(0).toString());
         summary.evenSelector.select(entity.summary.get(1).toString());
@@ -53,6 +54,7 @@ public class MetalsColorsForm extends Form<MetalColorEntity> {
         value = "Submit '{name}' with {0}",
         timeout = 0
     )
+    @Override
     public void submit(MetalColorEntity entity) {
         this.fill(entity);
         this.submit.click();

@@ -1,8 +1,9 @@
 package com.epam.tc.gdi.hw1.site.entities;
 
+import com.epam.jdi.tools.DataClass;
 import java.util.List;
 
-public class MetalColorEntity {
+public class MetalColorEntity extends DataClass<MetalColorEntity> {
 
     public List<Integer> summary;
 

@@ -2,6 +2,7 @@ package com.epam.tc.hw2;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import java.time.Duration;
+import org.assertj.core.api.SoftAssertions;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.BeforeClass;

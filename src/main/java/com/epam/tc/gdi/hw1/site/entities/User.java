@@ -1,6 +1,8 @@
 package com.epam.tc.gdi.hw1.site.entities;
 
-public class User  {
+import com.epam.jdi.tools.DataClass;
+
+public class User extends DataClass<User> {
 
     private String name;
     private String password;
