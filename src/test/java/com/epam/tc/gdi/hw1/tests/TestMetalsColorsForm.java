@@ -12,7 +12,7 @@ public class TestMetalsColorsForm extends TestsInit {
 
     @Test(dataProvider = "getMetalAndColorEntities", dataProviderClass = JsonDataProviders.class)
     public void fillMetalsColorsForm(MetalColorEntity metalColorEntity) {
-        metalsColorsPage.shouldBeOpened();
+        metalsColorsPage.open();
         metalsColorsPage.metalsColorsForm.submit(metalColorEntity);
         assertThat(metalsColorsPage.result, containsCorrectEntity(metalColorEntity));
     }

@@ -14,9 +14,15 @@ public class MetalsColorsPage extends WebPage {
     @Css("ul[class=\"panel-body-list results\"]>li")
     public WebList result;
 
+    @Override
     public void shouldBeOpened() {
-        if (!getTitle().equalsIgnoreCase("metals and colors")) {
-            Header.navigation.metalsColors.click();
+        if (!isOpened()) {
+            open();
         }
+    }
+
+    @Override
+    public void open(Object... params) {
+        Header.navigation.metalsColors.click();
     }
 }
