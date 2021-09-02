@@ -1,5 +1,6 @@
 package com.epam.tc.hw2;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -7,6 +8,7 @@ import org.assertj.core.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 
