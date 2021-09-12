@@ -161,7 +161,6 @@
         </maven-surefire-plugin.suiteXmlFile>
       </properties>
     </profile>
-        </profile>
     <profile>
       <id>jdi-homework8</id>
       <properties>
@@ -233,7 +232,6 @@
       <artifactId>cucumber-testng</artifactId>
       <version>${cucumber.version}</version>
     </dependency>
-    <dependency>
     <dependency>
       <groupId>com.epam.jdi</groupId>
       <artifactId>jdi-light-html</artifactId>
