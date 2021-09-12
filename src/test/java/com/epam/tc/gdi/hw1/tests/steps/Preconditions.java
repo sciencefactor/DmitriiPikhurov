@@ -5,7 +5,7 @@ import com.epam.tc.gdi.hw1.site.pages.components.complex.Header;
 
 public class Preconditions {
 
-    public static void loginIfNot() {
+    public static void shouldBeLoggedIn() {
         if (!Header.userNameText.isDisplayed()) {
             Header.userIcon.click();
             Header.loginForm.loginAs(Users.DEFAULT_USER);
