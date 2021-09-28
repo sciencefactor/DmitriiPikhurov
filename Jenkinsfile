@@ -10,8 +10,7 @@ pipeline {
     stages {
         stage('Test') {
             steps {
-                sh "mvn clean"
-                sh "test -P selenium-homework4-failing"
+                sh "mvn test -P selenium-homework4-failing"
             }
         }
     }
